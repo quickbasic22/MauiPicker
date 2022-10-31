@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:collections="clr-namespace:System.Collections.Generic;assembly=System.Runtime"
+             x:Name="page"
+             xmlns:model="clr-namespace:MauiPicker.Model"
+             x:Class="MauiPicker.MainPage">
+
+    <ScrollView>
+        <StackLayout Margin="20">
+            <Label Text="Adding Data to Pickers's Items" />
+            <!--<Picker x:Name="ceoPicker" 
+                    Title="CEO"
+                    TitleColor="Red">
+                --><!--<Picker.Items>
+                    <x:String>Elon Musk</x:String>
+                    <x:String>Bill Gates</x:String>
+                    <x:String>Steve Jobs</x:String>
+                </Picker.Items>--><!--
+            </Picker>-->
+            <!--<Picker x:Name="companyPicker" 
+                    Title="CEO"
+                    TitleColor="Blue">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Tesla</x:String>
+                        <x:String>Microsoft</x:String>
+                        <x:String>Apple</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>-->
+                <Picker x:Name="companyPicker" 
+                    Title="CEO"
+                        ItemDisplayBinding="{Binding Name}"
+                        SelectedIndexChanged="companyPicker_SelectedIndexChanged"
+                    TitleColor="Blue">
+                <Picker.ItemsSource>
+                    <x:Array Type="{Type model:CompanyModel}">
+                        <model:CompanyModel Name="Tesla" Logo="T" Description="Electric Cars" />
+                        <model:CompanyModel Name="Microsoft" Logo="M" Description="Computer Software" />
+                        <model:CompanyModel Name="Apple" Logo="A" Description="Computer Software" />
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+
+            <HorizontalStackLayout>
+                <Image x:Name="myImage1"
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi  to you!"
+                    HeightRequest="400"
+                    WidthRequest="200"
+                    HorizontalOptions="Start" />
+
+                <Image x:Name="myImage2"
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi  to you!"
+                    HeightRequest="400"
+                    WidthRequest="200"
+                    HorizontalOptions="Center" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout>
+                <Image x:Name="myImage3"
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi  to you!"
+                    HeightRequest="400"
+                    WidthRequest="200"
+                    HorizontalOptions="Start" />
+                <Image x:Name="myImage4"
+                    Source="dotnet_bot.png"
+                    SemanticProperties.Description="Cute dot net bot waving hi  to you!"
+                    HeightRequest="400"
+                    WidthRequest="200"
+                    HorizontalOptions="Center"  />
+            </HorizontalStackLayout>
+            <Button x:Name="filePickerButton" Text="Pick File" Clicked="filePickerButton_Clicked" />
+        </StackLayout> 
+       
+    </ScrollView>
+
+</ContentPage>
