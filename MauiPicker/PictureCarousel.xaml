@@ -7,35 +7,50 @@
              x:Class="MauiPicker.PictureCarousel"
              Title="PictureCarousel">
 
-   
-    <CarouselView x:Name="MyCarousel" ItemsSource="{Binding Items}"
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Change DataTemplate back" Clicked="ToolbarItem_Clicked" />
+    </ContentPage.ToolbarItems>
+    <StackLayout>
+        <CarouselView x:Name="MyCarousel" ItemsSource="{Binding Items}"
                   IsSwipeEnabled="True"
                   Loop="False"
-                  HorizontalScrollBarVisibility="Always">
-        <CarouselView.ItemTemplate>
-            <DataTemplate x:Name="MyDataTemplate" x:DataType="model:PictureModel">
-                <Frame HasShadow="True"
+                  HorizontalScrollBarVisibility="Always"
+                      IndicatorView="{Reference indicatorView}">
+            <CarouselView.ItemTemplate>
+                <DataTemplate x:Name="MyDataTemplate" x:DataType="model:PictureModel">
+                    <Frame HasShadow="True"
                                BorderColor="DarkGray"
                                CornerRadius="5"
                                Margin="20"
                                HeightRequest="300"
                                HorizontalOptions="Center"
                                VerticalOptions="CenterAndExpand">
-                    <Frame.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
-                    </Frame.GestureRecognizers>
-                    <StackLayout>
-                        <Label Text="{Binding PictureObject}" FontSize="Large" />
-                        <DatePicker Date="{Binding Date}" FontSize="Large" />
-                        <Label Text="{Binding Description}" FontSize="Large" />
-                        <Image Source="{Binding PictureUrl}"
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped" NumberOfTapsRequired="1" />
+                        </Frame.GestureRecognizers>
+                        <StackLayout>
+                            <Label Text="{Binding PictureObject}" FontSize="Large" />
+                            <DatePicker Date="{Binding Date}" FontSize="Large" />
+                            <Label Text="{Binding Description}" FontSize="Large" />
+                            <Image Source="{Binding PictureUrl}"
                            HeightRequest="300"
                            WidthRequest="300" 
                            FlowDirection="LeftToRight" 
                            Aspect="AspectFit" />
-                    </StackLayout>
-                </Frame>
-            </DataTemplate>
-        </CarouselView.ItemTemplate>
-    </CarouselView>
+                        </StackLayout>
+                    </Frame>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+
+        </CarouselView>
+        
+        <IndicatorView x:Name="indicatorView"
+                       ItemsSource="{Binding Items}"
+                       IndicatorSize="20"
+                       IndicatorsShape="Square"
+        IndicatorColor="Blue"
+        SelectedIndicatorColor="Purple"
+        HorizontalOptions="Center">
+        </IndicatorView>
+    </StackLayout>
 </ContentPage>
