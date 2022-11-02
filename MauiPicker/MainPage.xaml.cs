@@ -1,4 +1,6 @@
 ﻿using MauiPicker.Model;
+using CommunityToolkit.Maui.Views;
+using System.Diagnostics;
 
 namespace MauiPicker;
 
@@ -8,6 +10,13 @@ public partial class MainPage : ContentPage
 	public MainPage()
 	{
 		InitializeComponent();
+
+		//CommunityToolkit.Maui.Views.Popup popup = new CommunityToolkit.Maui.Views.Popup();
+		//Label label = new Label();
+		//label.Text = "CommunityToolkit Popup";
+  //      label.FadeTo(0.25, 3000, Easing.SpringIn);
+		//popup.Content = label;
+		//MyStack.Children.Add(popup.Content);
 		//ceoPicker.Items.Add("Elon Musk");
 		//ceoPicker.Items.Add("Bill Gates");
 		//ceoPicker.Items.Add("Steve Jobs");
@@ -29,6 +38,11 @@ public partial class MainPage : ContentPage
             await TextToSpeech.SpeakAsync(obj.Description);
 
         }
+        string action = await DisplayActionSheet("ActionSheet: Send to?", "Cancel", null, "Email", "Twitter", "Facebook");
+       await DisplayAlert("hello", "Action: " + action, "Ok");
+
+        string result = await DisplayPromptAsync("Question 1", "What's your name?");
+		await DisplayAlert("Your name was", result, "ok");
     }
 	private async void filePickerButton_Clicked(object sender, EventArgs e)
 	{

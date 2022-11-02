@@ -48,4 +48,26 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Resources\Images\OhioTunnel.jpg" />
+	  <None Remove="Resources\Images\SSDPCI.jpg" />
+	  <None Remove="Resources\Images\TShirt197350years.png" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="CommunityToolkit.Maui" Version="1.3.0" />
+	  <PackageReference Include="CommunityToolkit.Maui.Core" Version="1.3.0" />
+	  <PackageReference Include="CommunityToolkit.Maui.Markup" Version="1.1.1" />
+	  <PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="CarouselViewDemoPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="PictureCarousel.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

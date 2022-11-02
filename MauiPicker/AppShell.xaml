@@ -4,11 +4,26 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:MauiPicker"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.NavBarIsVisible="True"
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
+
+
+    <FlyoutItem Title="Menu List">
+        <ShellContent
+        Title="Carousel View Demo"
+        ContentTemplate="{DataTemplate local:CarouselViewDemoPage}"
+        Route="CarouselDemo" />
+        <ShellContent
+        Title="CarouselView"
+        ContentTemplate="{DataTemplate local:PictureCarousel}"
+        Route="PictureCarousel" />
+        <ShellContent
         Title="Home"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
+        
+    </FlyoutItem>
+
 
 </Shell>

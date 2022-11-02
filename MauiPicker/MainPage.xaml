@@ -2,12 +2,15 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:collections="clr-namespace:System.Collections.Generic;assembly=System.Runtime"
+             xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              x:Name="page"
              xmlns:model="clr-namespace:MauiPicker.Model"
              x:Class="MauiPicker.MainPage">
 
     <ScrollView>
-        <StackLayout Margin="20">
+        <StackLayout x:Name="MyStack" Margin="20">
+             
+            <mct:DrawingView LineWidth="10" VerticalOptions="Center" HorizontalOptions="StartAndExpand"  BackgroundColor="Blue" LineColor="Yellow" />
             <Label Text="Adding Data to Pickers's Items" />
             <!--<Picker x:Name="ceoPicker" 
                     Title="CEO"
@@ -42,6 +45,7 @@
                 </Picker.ItemsSource>
             </Picker>
 
+           
             <HorizontalStackLayout>
                 <Image x:Name="myImage1"
                     Source="dotnet_bot.png"
@@ -74,6 +78,8 @@
             </HorizontalStackLayout>
             <Button x:Name="filePickerButton" Text="Pick File" Clicked="filePickerButton_Clicked" />
         </StackLayout> 
+        
+        
        
     </ScrollView>
 
